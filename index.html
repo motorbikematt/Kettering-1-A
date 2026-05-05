@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matthew Reyes — Kettering 1-A Precinct Captain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1890029');
+  </script>
+  <!-- End MailerLite Universal -->
+  <style>
+    /* ── Kettering design tokens ── */
+    :root {
+      --maroon:      #8E0C3A;
+      --maroon-dk:   #6e0929;
+      --berry:       #AB1E56;
+      --teal:        #06616F;
+      --teal-dk:     #044d59;
+      --bg:          #FFFFFF;
+      --section-bg:  #F1F1F1;
+      --text:        #212121;
+      --muted:       #555555;
+      --border:      #d8d8d8;
+      --shadow:      0 2px 10px rgba(0,0,0,.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Public Sans", sans-serif;
+      font-size: 16px;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── STICKY HEADER ── */
+    header {
+      background: var(--maroon);
+      color: #fff;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    .wordmark {
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .wordmark span { opacity: .75; font-weight: 400; }
+    .header-badge {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      padding: .25rem .75rem;
+      border-radius: 4px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c0a18 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem 1rem;
+      border-radius: 3px;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.12;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.85);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .hero p strong { color: #fff; }
+    .hero-ctas {
+      display: flex;
+      gap: .75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: .75rem 1.75rem;
+      font-family: "Public Sans", sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      text-decoration: none;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); text-decoration: none; }
+    .btn-teal    { background: var(--teal);   color: #fff; }
+    .btn-teal:hover { background: var(--teal-dk); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.7); }
+    .btn-outline:hover { background: rgba(255,255,255,.12); }
+
+    /* ── TEAL ACTION STRIP ── */
+    .action-strip {
+      background: var(--teal);
+      display: flex;
+    }
+    .action-strip a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      padding: 1.1rem 1rem;
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      border-right: 1px solid rgba(255,255,255,.2);
+      transition: background .2s;
+    }
+    .action-strip a:last-child { border-right: none; }
+    .action-strip a:hover { background: var(--teal-dk); text-decoration: none; }
+    .action-strip svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+
+    /* ── SECTION SHELL ── */
+    section { padding: 3rem 2rem; }
+    section.alt { background: var(--section-bg); }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    h2.section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    h2.section-title span { color: var(--teal); }
+
+    /* ── ABOUT BLURB ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-grid p { color: var(--muted); margin-bottom: .9rem; }
+    .win-stat {
+      background: var(--maroon);
+      color: #fff;
+      border-radius: 6px;
+      padding: 1.5rem 1.75rem;
+      text-align: center;
+    }
+    .win-stat .num { font-size: 3rem; font-weight: 900; line-height: 1; display: block; }
+    .win-stat .label { font-size: .9rem; opacity: .85; margin-top: .4rem; }
+
+    /* ── WHAT IS A CAPTAIN cards ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.1rem;
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--teal);
+      padding: 1.5rem 1.25rem;
+      box-shadow: var(--shadow);
+    }
+    .card-icon { margin-bottom: .6rem; }
+    .card-icon svg { width: 32px; height: 32px; fill: var(--teal); }
+    .card h3   { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; color: var(--text); }
+    .card p    { font-size: .88rem; color: var(--muted); }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--teal);
+      padding: 2.5rem 2rem;
+      max-width: 640px;
+      margin: 0 auto;
+      box-shadow: var(--shadow);
+    }
+    .newsletter-box h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: .5rem; }
+    .newsletter-box p  { color: var(--muted); margin-bottom: 1.4rem; font-size: .95rem; }
+    .newsletter-box p strong { color: var(--text); }
+    .signup-row {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .signup-row input[type="email"] {
+      flex: 1 1 220px;
+      padding: .72rem 1rem;
+      border: 1px solid var(--border);
+      font-family: "Public Sans", sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      outline: none;
+      border-radius: 3px;
+      transition: border-color .2s;
+    }
+    .signup-row input[type="email"]:focus { border-color: var(--teal); }
+    .signup-row input[type="email"]::placeholder { color: #999; }
+    .signup-row button {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: .72rem 1.5rem;
+      font-family: "Public Sans", sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .signup-row button:hover { background: var(--teal-dk); }
+    .form-note { font-size: .76rem; color: #999; margin-top: .65rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--maroon);
+      color: rgba(255,255,255,.85);
+      padding: 2.5rem 2rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .footer-col h4 {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-bottom: .75rem;
+    }
+    .footer-col p, .footer-col a {
+      font-size: .87rem;
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      display: block;
+      margin-bottom: .25rem;
+    }
+    .footer-col a:hover { color: #fff; text-decoration: underline; }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.2);
+      margin: 2rem 0 1rem;
+    }
+    .footer-legal {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: .75rem;
+      color: rgba(255,255,255,.5);
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 540px) {
+      .action-strip { flex-direction: column; }
+      .action-strip a { border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); }
+      .action-strip a:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wordmark">Kettering <span>1-A</span> Neighbors</div>
+    <div class="header-badge">Precinct Captain Race · 2026</div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Montgomery County Democratic Party</div>
+      <h1>Hi, I'm Matthew Reyes — your neighbor, running for Precinct Captain.</h1>
+      <p>
+        I'm building a neighborhood newsletter with local news, voting info, and city updates that actually matter to Kettering 1-A.
+        <strong>All neighbors are welcome, regardless of party.</strong>
+      </p>
+      <div class="hero-ctas">
+        <a href="#newsletter" class="btn btn-teal">Get the Newsletter</a>
+        <a href="#what-is-a-captain" class="btn btn-outline">What's a Precinct Captain?</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAL ACTION STRIP -->
+  <div class="action-strip">
+    <a href="#newsletter">
+      <!-- envelope icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2-8 5-8-5h16zm0 12H4V8.92l8 5 8-5V18z"/></svg>
+      Sign Up for Updates
+    </a>
+    <a href="#what-is-a-captain">
+      <!-- info icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      What Is a Precinct Captain?
+    </a>
+    <a href="#about">
+      <!-- person icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
+      About Matthew
+    </a>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="section-title">A neighbor who's <span>already done the work</span></h2>
+      <div class="about-grid">
+        <div>
+          <p>I'm a Kettering 1-A resident. Last year I co-founded a local grassroots PAC focused on voter turnout across Kettering — running door-to-door canvassing, a neighborhood email list, and data-driven outreach to tens of thousands of registered voters.</p>
+          <p>All five of the local candidates we supported won their seats in November 2025. Now I want to bring that same energy directly to our precinct — keeping you informed about what's happening on our block, at city hall, and at the ballot box.</p>
+          <p>My newsletter and website will cover local elections, voting deadlines, school board decisions, and city issues — <strong>the stuff that actually affects your street, regardless of your party.</strong></p>
+        </div>
+        <div>
+          <div class="win-stat">
+            <span class="num">5 / 5</span>
+            <div class="label">Local candidates supported by my PAC won their seats in November 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS A CAPTAIN -->
+  <section class="alt" id="what-is-a-captain">
+    <div class="section-inner">
+      <h2 class="section-title">What is a <span>Precinct Captain?</span></h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
+          </div>
+          <h3>Your neighborhood's voice</h3>
+          <p>A Precinct Captain is the Democratic Party's direct link to voters in a specific neighborhood — the boots-on-the-ground contact for our precinct.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 3H6a2 2 0 00-2 2v14l4-4h10a2 2 0 002-2V5a2 2 0 00-2-2zm-4 9H7v-2h7v2zm3-4H7V6h10v2z"/></svg>
+          </div>
+          <h3>Keep neighbors informed</h3>
+          <p>Share factual information about candidates, local ballot issues, and how to register — so every neighbor has what they need at election time.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          </div>
+          <h3>Get out the vote</h3>
+          <p>Knock doors and make calls before elections — from school board races to presidential contests — to make sure registered voters actually show up.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h3>Build community power</h3>
+          <p>By connecting neighbors and relaying feedback to the county party, Precinct Captains strengthen local civic infrastructure from the ground up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter">
+    <div class="section-inner" style="text-align:center;">
+      <h2 class="section-title">Stay informed about <span>Kettering 1-A</span></h2>
+      <div class="newsletter-box" style="text-align:left;">
+        <h2>Local news you'll actually use</h2>
+        <p>
+          Covering local elections, voting deadlines, school board decisions, and city issues that affect our street — not the national noise.
+          <strong>Everyone is welcome to sign up, regardless of party.</strong> No spam. Unsubscribe any time.
+        </p>
+        <div class="ml-embedded" data-form="qG50hO"></div>
+        <p class="form-note">Your email is used only for this newsletter and will never be shared.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:motorbikematt@gmail.com">motorbikematt@gmail.com</a>
+        <p>Kettering 1-A, Montgomery County, Ohio</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#about">About Matthew</a>
+        <a href="#what-is-a-captain">What is a Precinct Captain?</a>
+        <a href="#newsletter">Sign Up for the Newsletter</a>
+      </div>
+      <div class="footer-col">
+        <h4>Montgomery County</h4>
+        <a href="https://www.mcohio.org/government/elected_officials/board_of_elections/index.php" target="_blank" rel="noopener">Board of Elections</a>
+        <a href="https://www.ketteringoh.org" target="_blank" rel="noopener">City of Kettering</a>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <p class="footer-legal">Paid for by Matthew F. Reyes for Precinct Captain · Democrat, Kettering 1-A, Montgomery County, Ohio</p>
+  </footer>
+
+</body>
+</html>
