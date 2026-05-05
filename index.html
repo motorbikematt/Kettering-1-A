@@ -15,7 +15,6 @@
   </script>
   <!-- End MailerLite Universal -->
   <style>
-    /* ── Kettering design tokens ── */
     :root {
       --maroon:      #8E0C3A;
       --maroon-dk:   #6e0929;
@@ -76,25 +75,51 @@
       border-radius: 4px;
     }
 
+    /* ── TOP SIGNUP BANNER ── */
+    .top-signup-bar {
+      background: var(--teal);
+      color: #fff;
+      text-align: center;
+      padding: .85rem 1.5rem;
+      font-size: .95rem;
+      font-weight: 700;
+    }
+    .top-signup-bar a {
+      display: inline-block;
+      margin-left: .75rem;
+      background: #fff;
+      color: var(--teal);
+      font-weight: 900;
+      padding: .3rem .9rem;
+      border-radius: 3px;
+      font-size: .88rem;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .top-signup-bar a:hover { background: #e6f4f5; text-decoration: none; }
+
     /* ── HERO ── */
     .hero {
       background: linear-gradient(135deg, #1a1a1a 0%, #2c0a18 100%);
       position: relative;
       overflow: hidden;
-      padding: 5rem 2rem 4.5rem;
+      padding: 4rem 2rem 3.5rem;
       text-align: center;
     }
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,.55);
+      background: rgba(0,0,0,.52);
     }
     .hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 700px;
+      max-width: 780px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .hero-eyebrow {
       display: inline-block;
@@ -113,15 +138,23 @@
       font-weight: 900;
       color: #fff;
       line-height: 1.12;
-      margin-bottom: 1rem;
+      margin-bottom: .9rem;
+      text-align: center;
+      width: 100%;
     }
-    .hero p {
+    .hero-sub {
       font-size: 1.05rem;
-      color: rgba(255,255,255,.85);
-      max-width: 600px;
-      margin: 0 auto 2rem;
+      color: rgba(255,255,255,.82);
+      margin-bottom: .2rem;
+      text-align: center;
     }
-    .hero p strong { color: #fff; }
+    .hero-sub-party {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
     .hero-ctas {
       display: flex;
       gap: .75rem;
@@ -181,24 +214,36 @@
     }
     h2.section-title span { color: var(--teal); }
 
-    /* ── ABOUT BLURB ── */
+    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: start;
     }
     @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
     .about-grid p { color: var(--muted); margin-bottom: .9rem; }
-    .win-stat {
-      background: var(--maroon);
-      color: #fff;
-      border-radius: 6px;
-      padding: 1.5rem 1.75rem;
-      text-align: center;
+
+    /* photo */
+    .about-photo {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,.18);
     }
-    .win-stat .num { font-size: 3rem; font-weight: 900; line-height: 1; display: block; }
-    .win-stat .label { font-size: .9rem; opacity: .85; margin-top: .4rem; }
+    .about-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .about-photo figcaption {
+      background: var(--maroon);
+      color: rgba(255,255,255,.85);
+      font-size: .8rem;
+      text-align: center;
+      padding: .5rem 1rem;
+    }
 
     /* ── WHAT IS A CAPTAIN cards ── */
     .cards {
@@ -231,37 +276,6 @@
     .newsletter-box h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: .5rem; }
     .newsletter-box p  { color: var(--muted); margin-bottom: 1.4rem; font-size: .95rem; }
     .newsletter-box p strong { color: var(--text); }
-    .signup-row {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
-    }
-    .signup-row input[type="email"] {
-      flex: 1 1 220px;
-      padding: .72rem 1rem;
-      border: 1px solid var(--border);
-      font-family: "Public Sans", sans-serif;
-      font-size: .95rem;
-      color: var(--text);
-      outline: none;
-      border-radius: 3px;
-      transition: border-color .2s;
-    }
-    .signup-row input[type="email"]:focus { border-color: var(--teal); }
-    .signup-row input[type="email"]::placeholder { color: #999; }
-    .signup-row button {
-      background: var(--teal);
-      color: #fff;
-      border: none;
-      border-radius: 3px;
-      padding: .72rem 1.5rem;
-      font-family: "Public Sans", sans-serif;
-      font-size: .95rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .signup-row button:hover { background: var(--teal-dk); }
     .form-note { font-size: .76rem; color: #999; margin-top: .65rem; }
 
     /* ── FOOTER ── */
@@ -313,6 +327,8 @@
       .action-strip { flex-direction: column; }
       .action-strip a { border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); }
       .action-strip a:last-child { border-bottom: none; }
+      .top-signup-bar { font-size: .88rem; }
+      .top-signup-bar a { display: block; margin: .5rem auto 0; width: fit-content; }
     }
   </style>
 </head>
@@ -324,15 +340,19 @@
     <div class="header-badge">Precinct Captain Race · 2026</div>
   </header>
 
+  <!-- TOP SIGNUP BANNER -->
+  <div class="top-signup-bar">
+    Get local news for Kettering 1-A — all neighbors welcome.
+    <a href="#newsletter">Sign Up Free →</a>
+  </div>
+
   <!-- HERO -->
   <div class="hero">
     <div class="hero-inner">
       <div class="hero-eyebrow">Montgomery County Democratic Party</div>
-      <h1>Hi, I'm Matthew Reyes — your neighbor, running for Precinct Captain.</h1>
-      <p>
-        I'm building a neighborhood newsletter with local news, voting info, and city updates that actually matter to Kettering 1-A.
-        <strong>All neighbors are welcome, regardless of party.</strong>
-      </p>
+      <h1>Hi, I'm Matthew Reyes —<br>your neighbor on Peach Orchard Road,<br>running for Precinct Captain.</h1>
+      <p class="hero-sub">I'm building a neighborhood newsletter with local news, voting info, and city updates that actually matter to Kettering 1-A.</p>
+      <p class="hero-sub-party">All neighbors are welcome, regardless of party.</p>
       <div class="hero-ctas">
         <a href="#newsletter" class="btn btn-teal">Get the Newsletter</a>
         <a href="#what-is-a-captain" class="btn btn-outline">What's a Precinct Captain?</a>
@@ -343,17 +363,14 @@
   <!-- TEAL ACTION STRIP -->
   <div class="action-strip">
     <a href="#newsletter">
-      <!-- envelope icon -->
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2-8 5-8-5h16zm0 12H4V8.92l8 5 8-5V18z"/></svg>
       Sign Up for Updates
     </a>
     <a href="#what-is-a-captain">
-      <!-- info icon -->
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
       What Is a Precinct Captain?
     </a>
     <a href="#about">
-      <!-- person icon -->
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
       About Matthew
     </a>
@@ -365,16 +382,14 @@
       <h2 class="section-title">A neighbor who's <span>already done the work</span></h2>
       <div class="about-grid">
         <div>
-          <p>I'm a Kettering 1-A resident. Last year I co-founded a local grassroots PAC focused on voter turnout across Kettering — running door-to-door canvassing, a neighborhood email list, and data-driven outreach to tens of thousands of registered voters.</p>
+          <p>I'm a Kettering 1-A resident on Peach Orchard Road. Last year I co-founded a local grassroots PAC focused on voter turnout across Kettering — running door-to-door canvassing, a neighborhood email list, and data-driven outreach to tens of thousands of registered voters.</p>
           <p>All five of the local candidates we supported won their seats in November 2025. Now I want to bring that same energy directly to our precinct — keeping you informed about what's happening on our block, at city hall, and at the ballot box.</p>
           <p>My newsletter and website will cover local elections, voting deadlines, school board decisions, and city issues — <strong>the stuff that actually affects your street, regardless of your party.</strong></p>
         </div>
-        <div>
-          <div class="win-stat">
-            <span class="num">5 / 5</span>
-            <div class="label">Local candidates supported by my PAC won their seats in November 2025</div>
-          </div>
-        </div>
+        <figure class="about-photo">
+          <img src="PXL_20250209_014125222-EDIT.jpg" alt="Matthew Reyes and his dog at sunset on the beach" />
+          <figcaption>Matthew &amp; his dog — your neighbors on Peach Orchard Road</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -438,7 +453,8 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="mailto:motorbikematt@gmail.com">motorbikematt@gmail.com</a>
-        <p>Kettering 1-A, Montgomery County, Ohio</p>
+        <p>Peach Orchard Road, Kettering 1-A</p>
+        <p>Montgomery County, Ohio</p>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
